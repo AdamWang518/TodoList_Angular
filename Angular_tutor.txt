@@ -1,0 +1,5 @@
+Node Module裡用到的函式庫列表會在package-lock.json裡面儲存\
+tsconfig.json裡面會放入TyperScript相關的規範，確保命名跟型別符合規則
+paksge.json裡面的dependencies會儲存實際被用到的函式庫
+所有不同的頁面及element都會放在index.html的<app-root></app-root>裡以TyperScript/JS動態生成
+app.component.副檔名 的諸多元件合成起來會形成一個app.component的頁面
