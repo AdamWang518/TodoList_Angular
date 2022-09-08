@@ -1,0 +1,43 @@
+<input [ngClass]="isExpand? 'todo-switch-input':'todo-input'" (click)="expand()">
+<div id="todo-adder">
+  <div [ngClass]="isExpand? 'todo-switch-bottom':'todo-item-bottom'" id="item-bottom_0">
+      <div class="todo-editer">
+        <div class="option">
+          <i class="fa-solid fa-calendar-days"></i>
+          <div style="display: inline-block;">Deadline</div>
+          <br>
+          <input class="date" type="date" id="date_0" onblur="check()">
+          <input class="time" type="time" id="time_0">
+      </div>
+      <div class="option">
+          <i class="fa-solid fa-file"></i>
+          File
+          <br>
+          <input type="file" id="file_0">
+          <!-- <textarea class="comment-input"type="text"> -->
+      </div>
+      <div class="option">
+          <i class="fa-solid fa-comment-dots"></i>
+          Comment
+          <br>
+          <div class="input-area">
+              <textarea rows="10" style="width: 90%; border: none; outline: none; resize:none;"
+                  id="comment_0">
+          </textarea>
+          </div>
+
+      </div>
+
+    </div>
+    <div class="selector">
+      <div class="cancel" id="cancel_0" (click)="expand()">
+          <i class="fa-solid fa-xmark"></i>
+          Hide
+      </div>
+      <div class="save" id="save_0" onclick="save('0')">
+          <i class="fa-solid fa-plus"></i>
+          Save
+      </div>
+    </div>
+  </div>
+</div>

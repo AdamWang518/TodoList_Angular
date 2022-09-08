@@ -1,0 +1,26 @@
+.tool-bar{
+  background-color: #4A90E2;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.tasks{
+  height: 28px;
+  width: 220px;
+  color: #00408B;
+  transition: color 1s;
+  text-align: center;
+  cursor: pointer;
+}
+.tasks:hover{
+  color: #FFFFFF;
+}
+.task-onclick{
+  height: 28px;
+  width: 220px;
+  color: #FFFFFF;
+  text-align: center;
+  cursor: pointer;
+}

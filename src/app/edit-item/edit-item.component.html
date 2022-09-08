@@ -1,0 +1,66 @@
+<div class="todo-item-container" >
+  <div class="todo-item-top" >
+      <div class="todo-edit">
+          <input class="todo-check" type="checkbox"  (onchange)="upDate()">
+          <div [ngClass]="isEdit == true ? 'todo-text' : 'todo-text-switch'"  (click)="editText()" >Type Something Here…</div>
+          <input [ngClass]="isEdit == true ? 'todo-text-input-switch' : 'todo-text-input'"  type="text" (blur)="editText()">
+          <div class="todo-star-container">
+              <i class="fa-solid fa-star todo-edit-star" onclick="favorite('${index}')" ></i>
+              <i class="fa-solid fa-pen todo-switch-text" onclick="fold('edit_${index}','item-bottom_${index}')" ></i>
+          </div>
+
+
+      </div>
+      <!-- <i class="fa-thin fa-star todo-star"></i>
+      <i class="fa-thin fa-pen"></i> -->
+      <div class="todo-tag">
+          <i class="fa-solid fa-calendar-days todo-calendar" ></i>
+          <i class="fa-solid fa-comment-dots todo-comment" ></i>
+          <i class="fa-solid fa-file todo-file" ></i>
+      </div>
+
+
+  </div>
+  <div class="todo-switch-bottom" id="item-bottom_${index}">
+      <div class="todo-editer">
+          <div class="Deadline">
+              <i class="fa-solid fa-calendar-days"></i>
+              <div style="display: inline-block;">Deadline</div>
+              <br>
+              <input class="date" type="date" id="date_${index}">
+              <input class="time" type="time" id="time_${index}">
+          </div>
+          <div class="File">
+              <i class="fa-solid fa-file"></i>
+              File
+              <br>
+              <input type="file" id="file">
+              <!-- <textarea class="comment-input"type="text"> -->
+          </div>
+          <div class="Comment">
+              <i class="fa-solid fa-comment-dots"></i>
+              Comment
+              <br>
+              <div class="input-area">
+                  <textarea rows="10" style="width: 90%; border: none; outline: none; resize:none;" id="comment_${index}">
+                  </textarea>
+              </div>
+
+          </div>
+
+      </div>
+
+      <div class="selector">
+          <div class="cancel"  onclick="cancel('${index}')">
+              <i class="fa-solid fa-xmark"></i>
+              Cancel
+          </div>
+          <div class="edit" onclick="edit('${index}')">
+              <i class="fa-solid fa-plus"></i>
+              Edit
+          </div>
+      </div>
+  </div>
+
+
+</div>
