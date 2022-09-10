@@ -1,4 +1,4 @@
-.todo-input{
+.todo-switch-input{
   outline: none;
   margin-top: 24px;
   width: 500px;
@@ -9,7 +9,7 @@
 
   display: block;
 }
-.todo-switch-input{
+.todo-input{
   outline: none;
   margin-top: 24px;
   width: 500px;
@@ -45,11 +45,11 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.todo-switch-bottom{
+.todo-item-bottom{
   background-color: #F2F2F2;
   width: 100%;
 }
-.todo-item-bottom{
+.todo-switch-bottom{
 
   display: none;
 }

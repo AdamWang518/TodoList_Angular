@@ -18,5 +18,9 @@ export class EditItemComponent implements OnInit {
   editText(){
     this.isEdit=!this.isEdit;
   }
-  
+  isExpand:boolean=true;
+  expand():void{
+    this.isExpand=!this.isExpand;
+    console.log("expand")
+  }
 }

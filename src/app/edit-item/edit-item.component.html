@@ -5,8 +5,8 @@
           <div [ngClass]="isEdit == true ? 'todo-text' : 'todo-text-switch'"  (click)="editText()" >Type Something Here…</div>
           <input [ngClass]="isEdit == true ? 'todo-text-input-switch' : 'todo-text-input'"  type="text" (blur)="editText()">
           <div class="todo-star-container">
-              <i class="fa-solid fa-star todo-edit-star" onclick="favorite('${index}')" ></i>
-              <i class="fa-solid fa-pen todo-switch-text" onclick="fold('edit_${index}','item-bottom_${index}')" ></i>
+              <i class="fa-solid fa-star todo-edit-star"  ></i>
+              <i class="fa-solid fa-pen todo-switch-text" (click)="expand()" ></i>
           </div>
 
 
@@ -21,22 +21,27 @@
 
 
   </div>
-  <div class="todo-switch-bottom" id="item-bottom_${index}">
+  <div [ngClass]="isExpand == true ? 'todo-item-bottom':'todo-switch-bottom'" id="item-bottom_${index}">
       <div class="todo-editer">
+        <div class="option">
           <div class="Deadline">
-              <i class="fa-solid fa-calendar-days"></i>
-              <div style="display: inline-block;">Deadline</div>
-              <br>
-              <input class="date" type="date" id="date_${index}">
-              <input class="time" type="time" id="time_${index}">
+            <i class="fa-solid fa-calendar-days"></i>
+            <div style="display: inline-block;">Deadline</div>
+            <br>
+            <input class="date" type="date" id="date_${index}">
+            <input class="time" type="time" id="time_${index}">
           </div>
+        </div>
+        <div class="option">
           <div class="File">
-              <i class="fa-solid fa-file"></i>
-              File
-              <br>
-              <input type="file" id="file">
-              <!-- <textarea class="comment-input"type="text"> -->
+            <i class="fa-solid fa-file"></i>
+            File
+            <br>
+            <input type="file" id="file">
+            <!-- <textarea class="comment-input"type="text"> -->
           </div>
+        </div>
+        <div class="option">
           <div class="Comment">
               <i class="fa-solid fa-comment-dots"></i>
               Comment
@@ -47,7 +52,7 @@
               </div>
 
           </div>
-
+        </div>
       </div>
 
       <div class="selector">
