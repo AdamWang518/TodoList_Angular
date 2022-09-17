@@ -1,4 +1,4 @@
-<input [ngClass]="isExpand? 'todo-input':'todo-switch-input'" (click)="expand()">
+<input [ngClass]="isExpand? 'todo-input':'todo-switch-input'" (click)="expand()" [(ngModel)]="Data.text">
 <div id="todo-adder">
   <div [ngClass]="isExpand? 'todo-item-bottom':'todo-switch-bottom'" id="item-bottom_0">
       <div class="todo-editer">
@@ -6,8 +6,8 @@
           <i class="fa-solid fa-calendar-days"></i>
           <div style="display: inline-block;">Deadline</div>
           <br>
-          <input class="date" type="date" id="date_0" onblur="check()">
-          <input class="time" type="time" id="time_0">
+          <input class="date" type="date" id="date_0" [(ngModel)]="Data.date">
+          <input class="time" type="time" id="time_0" [(ngModel)]="Data.time">
       </div>
       <div class="option">
           <i class="fa-solid fa-file"></i>
@@ -22,7 +22,7 @@
           <br>
           <div class="input-area">
               <textarea rows="10" style="width: 90%; border: none; outline: none; resize:none;"
-                  id="comment_0">
+                  id="comment_0" [(ngModel)]="Data.comment">
           </textarea>
           </div>
 
@@ -30,11 +30,11 @@
 
     </div>
     <div class="selector">
-      <div class="cancel" id="cancel_0" (click)="expand()">
+      <div class="cancel"  (click)="expand()">
           <i class="fa-solid fa-xmark"></i>
           Hide
       </div>
-      <div class="save" id="save_0" onclick="save('0')">
+      <div class="save"  (click)="save()">
           <i class="fa-solid fa-plus"></i>
           Save
       </div>

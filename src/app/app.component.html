@@ -5,10 +5,10 @@
   <div class="todo-container-jar"><!--負責置中  -->
     <div class="todo-newline-jar"><!--負責換行  -->
       <div class="todo-input-jar">
-        <app-input-item></app-input-item>
+        <app-input-item ></app-input-item>
       </div>
-      <div class="todo-items-jar">
-        <app-edit-item></app-edit-item>
+      <div class="todo-items-jar" *ngFor="let item of response">
+        <app-edit-item [inputDefaultItem]="item"></app-edit-item>
       </div>
     </div>
 
