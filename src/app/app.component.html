@@ -1,6 +1,6 @@
 <div class="back-ground">
   <div class="tool-bar-jar">
-    <app-tool-bar></app-tool-bar>
+    <app-tool-bar (pushToFather)="getChild($event)"></app-tool-bar>
   </div>
   <div class="todo-container-jar"><!--負責置中  -->
     <div class="todo-newline-jar"><!--負責換行  -->

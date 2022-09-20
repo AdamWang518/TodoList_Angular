@@ -18,13 +18,16 @@ export class TaskService {
     console.log(data);
     return this.http.get<any>(`http://localhost:63320/deleteTodoList?id=${data.id}`);
   }
+  upDateTask(data: task){
+    
+  }
   addTask(data: task) {
     this.subject.next(data);
   }
   getTask() {
     return this.subject.asObservable();
   }
-  selectTask(){
-    return this.http.get<any>(`http://localhost:63320/getTodoList?type=0`);
+  selectTask(type:number=0){
+    return this.http.get<any>(`http://localhost:63320/getTodoList?type=${type}`);
   }
 }

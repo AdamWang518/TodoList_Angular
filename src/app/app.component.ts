@@ -18,35 +18,39 @@ export class AppComponent {
   // [(ngModel)] 雙向綁定 => 前端<->後端
   response: task[] = [];
 
-  constructor(private http: HttpClient,private service:TaskService) {
+  constructor(private http: HttpClient, private service: TaskService) {
     // this.http.get<any>('http://localhost:63320/getTodoList?type=0').subscribe(res => {
     //   this.response = res.data;
     //   console.log(this.response)
     // });
-    let that=this;
-    service.selectTask().subscribe(res=>{
+    let that = this;
+    service.selectTask().subscribe(res => {
       console.log(res.data);
-      res.data.forEach(function(value:any){
+      res.data.forEach(function (value: any) {
         that.response.push(value);
       });
     })
-    service.anotherSubject.asObservable().subscribe(res=>{
-    //   this.response = this.response.filter(function (x) {
-    //   return x.id != response.id;
-    // })
-    // response=response.filter(response)
-    // });
+    service.anotherSubject.asObservable().subscribe(res => {
+      this.response = this.response.filter(x => x.id !== res);
     });
   }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.service.getTask().subscribe(res =>{
+    this.service.getTask().subscribe(res => {
       this.response.push(res);
       console.log(this.response);
     });
   }
-
+  getChild(type:number){
+    this.response= [];
+    let that = this;
+    this.service.selectTask(type).subscribe(res => {
+      res.data.forEach(function (value: any) {
+        that.response.push(value);
+      });
+    })
+  }
   remove() {
 
     // this.elements = this.elements.filter(function (x) {

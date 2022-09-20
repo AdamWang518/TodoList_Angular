@@ -1,5 +1,5 @@
 <div class="tool-bar">
-  <div class="tasks">My Tasks</div>
-  <div class="tasks">In Progress</div>
-  <div class="tasks">Completed</div>
+  <div [ngClass]="choose == 0 ? 'task-onclick' : 'tasks'" (click)="changeType(0)">My Tasks</div>
+  <div [ngClass]="choose == 1 ? 'task-onclick' : 'tasks'" (click)="changeType(1)">In Progress</div>
+  <div [ngClass]="choose == 2 ? 'task-onclick' : 'tasks'" (click)="changeType(2)">Completed</div>
 </div>

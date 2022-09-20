@@ -32,5 +32,6 @@ export class EditItemComponent implements OnInit {
     this.service.removeTask(this.inputDefaultItem).subscribe(res=>{
       this.service.anotherSubject.next(this.inputDefaultItem.id);
     });
+    //呼叫service remove掉特定Item，subscribe它的回應，成功後再利用subject傳遞給app component移除掉畫面上的this.inputDefaultItem.id的item
   }
 }
