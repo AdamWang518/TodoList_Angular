@@ -4,6 +4,6 @@ export class task{
   comment:String="";
   date:String="";
   time:String="";
-  isCOmplete:boolean=false;
+  isComplete:boolean=false;
   isMarked:boolean=false;
 }

@@ -1,11 +1,11 @@
 <div class="todo-item-container">
-  <div class="todo-item-top" [ngClass]="isFavorite == false ? 'todo-item-top':'todo-item-switch-top'">
+  <div class="todo-item-top" [ngClass]="inputDefaultItem.isMarked == false ? 'todo-item-top':'todo-item-switch-top'">
     <div class="todo-edit">
-      <input class="todo-check" type="checkbox" #todocheck (change)="upDate(todocheck)">
+      <input class="todo-check" type="checkbox" [(ngModel)]="inputDefaultItem.isComplete" (change)="upDate()">
       <div [ngClass]="isEdit == true ? 'todo-text' : 'todo-text-switch'" (click)="editText()">{{inputDefaultItem.text}}</div>
       <input [ngClass]="isEdit == true ? 'todo-text-input-switch' : 'todo-text-input'" type="text" (blur)="editText()" [(ngModel)]="inputDefaultItem.text">
       <div class="todo-star-container">
-        <i class="fa-solid fa-star " [ngClass]="isFavorite == false ? 'todo-edit-star':'todo-switch-star'"
+        <i class="fa-solid fa-star " [ngClass]="inputDefaultItem.isMarked == false ? 'todo-edit-star':'todo-switch-star'"
           (click)="favorite()"></i>
         <i class="fa-solid fa-pen " [ngClass]="isExpand == true ? 'todo-edit-text':'todo-switch-text'"
           (click)="expand()"></i>
@@ -62,7 +62,7 @@
         <i class="fa-solid fa-xmark"></i>
         Cancel
       </div>
-      <div class="edit" onclick="edit('${index}')">
+      <div class="edit" (click)="upDate()">
         <i class="fa-solid fa-plus"></i>
         Edit
       </div>

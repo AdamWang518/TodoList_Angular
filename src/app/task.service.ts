@@ -19,8 +19,9 @@ export class TaskService {
     return this.http.get<any>(`http://localhost:63320/deleteTodoList?id=${data.id}`);
   }
   upDateTask(data: task){
-    
+    return this.http.post<any>('http://localhost:63320/updateTodoList', data)
   }
+  
   addTask(data: task) {
     this.subject.next(data);
   }

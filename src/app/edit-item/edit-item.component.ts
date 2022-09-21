@@ -8,16 +8,19 @@ import { TaskService } from '../task.service';
 })
 export class EditItemComponent implements OnInit {
   @Input() inputDefaultItem: task = new task();
-  constructor(private service: TaskService) { }
+  constructor(private service: TaskService) {
+  }
 
   ngOnInit(): void {
 
   }
-  upDate(element: any) {
-    console.log(element)
+  upDate() {
+    this.service.upDateTask(this.inputDefaultItem).subscribe(res=>{
+      console.log(`update ${this.inputDefaultItem.id}`)
+    })
   }
   isEdit: boolean = true;
-  isFavorite: boolean = false;
+
   editText() {
     this.isEdit = !this.isEdit;
   }
@@ -26,7 +29,8 @@ export class EditItemComponent implements OnInit {
     this.isExpand = !this.isExpand;
   }
   favorite(): void {
-    this.isFavorite = !this.isFavorite;
+    this.inputDefaultItem.isMarked=!this.inputDefaultItem.isMarked;
+    this.upDate();
   }
   cancel():void{
     this.service.removeTask(this.inputDefaultItem).subscribe(res=>{
